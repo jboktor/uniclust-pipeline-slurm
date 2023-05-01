@@ -13,9 +13,6 @@ To build your own databases based on the uniclust pipeline you can use the follo
 
 Make sure to run the scripts in this order.
 
-## LSF
-The pipeline was custom build for out LSF cluster computing environment and can be submitted to the LSF with `bsub < run_mpi.sh` for example.
-Please adjust the LSF parameters at the beginning of the `run_` scripts. The pipeline assumes a shared file system between the computing nodes.
+## SLURM
+This pipeline has been adopted to use the SLURM workflow manager and can be submit using `sbatch run_mpi.sh `
 
-## Webserver & Downloads
-We provide a webserver and the Uniclust based on the UniProtKB on <https://uniclust.mmseqs.com/>.
