@@ -1,13 +1,11 @@
 #!/bin/bash -ex
-#BSUB -q mpi-long+
-#BSUB -o out.%J
-#BSUB -e err.%J
-#BSUB -W 330:00
-#BSUB -n 160
-#BSUB -a openmpi
-#BSUB -m hh
-#BSUB -R cbscratch
-#BSUB -R "span[ptile=16]"
+#SBATCH --job-name=uniclust-log.%J
+#SBATCH --output=uniclust-log.%J
+#SBATCH --time=5-00:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=10G
+
 export RUNNER="mpirun --pernode --bind-to none"
 export COMMON="--threads 16"
 export OMP_NUM_THREADS=16
