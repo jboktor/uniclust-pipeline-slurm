@@ -1,13 +1,9 @@
 #!/bin/bash -ex
-#BSUB -q mpi-long+
-#BSUB -o out.%J
-#BSUB -e err.%J
-#BSUB -W 120:00
-#BSUB -n 240
-#BSUB -a openmpi
-#BSUB -m hh
-#BSUB -R cbscratch
-#BSUB -R "span[ptile=16]"
+#SBATCH --job-name=uniclust-log.%J
+#SBATCH --output=uniclust-log.%J
+#SBATCH --time=5-00:00:00
+#SBATCH --ntasks=160
+#SBATCH --cpus-per-task=4
 
 function make_annotation() {
     local BASE="$1"
